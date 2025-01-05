@@ -833,35 +833,43 @@ const stores = [
     
 ];
 
-// Cible le conteneur de la grille
+// Cible le conteneur de la grille et la barre de recherche
 const gridContainer = document.getElementById("grid-container");
+const searchBar = document.getElementById("search-bar");
 
-// Génère les carrés pour chaque magasin
-stores.forEach(store => {
-    const square = document.createElement("div");
-    square.className = "square";
-    square.style.backgroundColor = store.backgroundColor; // Couleur de fond personnalisée
-    square.innerHTML = `
-        <img src="${store.logo}" alt="${store.name}">
-        <h3>${store.name}</h3>
-        <h4>${store.catégorie}</h4>
-    `;
-    square.addEventListener("click", () => openModal(store)); // Gestion de l'événement clic
-    gridContainer.appendChild(square);
-});
+// Fonction pour afficher les magasins dans la grille
+function displayStores(filteredStores) {
+    gridContainer.innerHTML = ""; // Vide la grille avant d'afficher les résultats filtrés
+    filteredStores.forEach(store => {
+        const square = document.createElement("div");
+        square.className = "square";
+        square.innerHTML = `
+            <img src="${store.logo}" alt="${store.name}">
+            <h3>${store.name}</h3>
+            <button class="close-square">&times;</button>
+        `;
+        square.addEventListener("click", () => openModal(store));
+        gridContainer.appendChild(square);
+    });
+}
 
 // Fonction pour afficher les détails dans la modale
 function openModal(store) {
     const modalTitle = document.getElementById("modal-title");
     const modalDescription = document.getElementById("modal-description");
     const modal = document.getElementById("modal");
-    const modalCategorie = document.getElementById("modal-categorie");
-    
-    modalCategorie.textContent = store.catégorie;
-    modalTitle.textContent = store.name;    
+
+    modalTitle.textContent = store.name;
     modalDescription.textContent = store.description;
     modal.style.display = "flex";
 }
+
+// Fonction pour filtrer les magasins selon la recherche
+searchBar.addEventListener("input", function() {
+    const searchQuery = searchBar.value.toLowerCase();
+    const filteredStores = stores.filter(store => store.name.toLowerCase().includes(searchQuery));
+    displayStores(filteredStores);
+});
 
 // Gestion de la fermeture de la modale
 document.getElementById("close-modal").addEventListener("click", () => {
@@ -876,3 +884,5 @@ window.addEventListener("click", (event) => {
     }
 });
 
+// Affiche tous les magasins au départ
+displayStores(stores);

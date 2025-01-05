@@ -5,13 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Tjats</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap');
+        </style>
 </head>
 <body>
-    <p>Version 1.0.0</p>
-    <img src="tjats.png" alt="Logo" id="image">
-    <h1>Tjats</h1>
-    <p>Vous cherchez un magasin ainsi que ses information , voici la bonne application . Cette application permet de trouver le magasin ou le restaurant de votre choix le plus proche ainsi que le site officiel du drive et le catalogue.<p>
+    <p>Version 1.0.1</p>
+    <h1 class="titre">Tjats</h1>
     
+    <div class="reste">
+        
+        <div class="logo" id="logo">
+          
+          <img src="tjats bannière.png" alt="Image responsive" style="width: 80vw; height: auto;">
+    
+         </div>
+
+         <p class="description">Qu'est ce que c'est ? Tjats c'est un site web qui vous permet de rechercher parmis nos plus de 70 référence de magasin,restaurant... et de trouver leur sites officiel !</p>
+    
+        <div class="search-container">
+            <input type="text" id="search-bar" placeholder="Rechercher quelque chose...">
+        </div>
+        <div class="grid-container" id="grid-container"></div>
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <span class="close" id="close-modal">&times;</span>
+                <h2 id="modal-title"></h2>
+                <p id="modal-description"></p>
+            </div>
+        </div>
 
     <div class="grid-container" id="grid-container"></div>
     <div class="modal" id="modal">
@@ -23,9 +45,12 @@
             
         </div>
     </div>
-
+  
+    <div class="logo" id="logo">
     <img src="tjats.png" alt="Logo" id="image">
+    </div>
 
+</div>
     <script src="script.js"></script>
 </body>
 </html>
