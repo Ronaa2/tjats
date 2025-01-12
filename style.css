@@ -1,7 +1,7 @@
 body {
     height: 100vh;
     align-items: center;
-    background-color: #333;
+    background-color: black;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -169,4 +169,19 @@ p {
 
 .reste {
     background: linear-gradient(135deg, #020209, #0E0E38, #191860, #201E7B, #2C2AA8, #3432C7);
+}
+
+.discord {
+    display: flex;
+    justify-content: center;   
+}
+
+.version {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    text-align: center; /* Aligner le texte au centre */
+    font-size: 20px;
+    font-family: "Funnel Display", serif;
+  font-optical-sizing: auto;
 }

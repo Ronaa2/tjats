@@ -846,7 +846,7 @@ function displayStores(filteredStores) {
         square.innerHTML = `
             <img src="${store.logo}" alt="${store.name}">
             <h3>${store.name}</h3>
-            <button class="close-square">&times;</button>
+            
         `;
         square.addEventListener("click", () => openModal(store));
         gridContainer.appendChild(square);
